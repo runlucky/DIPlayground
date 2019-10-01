@@ -23,18 +23,18 @@ namespace DIPlayground
         public string Name => throw new NotImplementedException();
     }
 
-    class PropertyUser : IUser
-    {
+    //class PropertyUser : IUser
+    //{
 
-    }
+    //}
 
-    class MethodUser:IUser
-    {
+    //class MethodUser:IUser
+    //{
 
-    }
+    //}
 
-    class FieldUser: IUser
-    {
+    //class FieldUser: IUser
+    //{
 
-    }
+    //}
 }
