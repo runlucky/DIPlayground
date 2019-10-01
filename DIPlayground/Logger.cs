@@ -12,7 +12,7 @@ namespace DIPlayground
 
     class Logger : ILogger
     {
-        public void Log(string text) => Debug.WriteLine(text);
+        public void Log(string text) => Debug.WriteLine("Log: " + text);
     }
 
     class DammyLogger : ILogger

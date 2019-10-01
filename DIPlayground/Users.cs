@@ -7,7 +7,7 @@ namespace DIPlayground
 {
     interface IUser
     {
-        public string Name { get; }
+        string GetName();
     }
 
     class ConstructorUser : IUser
@@ -20,7 +20,11 @@ namespace DIPlayground
             this.logger = logger;
         }
 
-        public string Name => throw new NotImplementedException();
+        public string GetName()
+        {
+            logger.Log("Constructor");
+            return "Constructror";
+        }
     }
 
     //class PropertyUser : IUser
