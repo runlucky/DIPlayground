@@ -12,33 +12,61 @@ namespace DIPlayground
 
     class ConstructorUser : IUser
     {
-        private ILogger logger;
+        private readonly ILogger _logger;
 
         [Inject]
-        public ConstructorUser(ILogger logger)
-        {
-            this.logger = logger;
-        }
+        public ConstructorUser(ILogger logger) => _logger = logger;
 
         public string GetName()
         {
-            logger.Log("Constructor");
-            return "Constructror";
+            _logger.Log("Constructor User");
+            return "Constructor User";
         }
     }
 
-    //class PropertyUser : IUser
-    //{
+    class PropertyUser : IUser
+    {
+        [Inject]
+        public ILogger Logger { private get; set; }
+        public string GetName()
+        {
+            Logger.Log("Property User");
+            return "Property User";
+        }
+    }
 
-    //}
+    class MethodUser : IUser
+    {
+        private ILogger _logger;
 
-    //class MethodUser:IUser
-    //{
+        [Inject]
+        public void SetLogger(ILogger logger) => _logger = logger;
+        public string GetName()
+        {
+            _logger.Log("Method User");
+            return "Method User";
+        }
+    }
 
-    //}
+    class PublicFieldUser : IUser
+    {
+        [Inject]
+        public ILogger Logger;
+        public string GetName()
+        {
+            Logger.Log("Public Field User");
+            return "Public Field User";
+        }
+    }
 
-    //class FieldUser: IUser
-    //{
-
-    //}
+    class PrivateFieldUser : IUser
+    {
+        [Inject]
+        private ILogger _logger;
+        public string GetName()
+        {
+            _logger.Log("Private Field User");
+            return "Private Field User";
+        }
+    }
 }
